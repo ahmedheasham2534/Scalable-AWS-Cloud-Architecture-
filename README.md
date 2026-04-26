@@ -4,7 +4,7 @@ This project demonstrates a highly available, scalable, and secure cloud archite
 
  🏗️ Architecture Overview
 
-![Architecture Diagram](./web-server-imgs/arch01.png)
+![Architecture Diagram](./web-server-imgs/arch02.png)
 
 This diagram represents a **highly available, scalable, and secure AWS architecture** designed for deploying a pharmacy web application.
 
@@ -113,7 +113,7 @@ Public subnets host internet-facing resources such as the Load Balancer and EC2 
 ✔ Separation between public and private resources  
 ✔ Improved security by isolating sensitive components  
 
-![Internet Gateway](./web-server-imgs/igw.png)
+![Internet Gateway](./web-server-imgs/trs.png)
 
 🔹 Attached to: pharmacy-system VPC  
 
@@ -125,19 +125,19 @@ It allows EC2 instances and the Application Load Balancer to receive incoming tr
 ✔ Required for web applications and external connectivity  
 ✔ Works with route tables to direct traffic (0.0.0.0/0)  
 
-![Route Tables](./web-server-imgs/rts.png)
+![Route Tables](./web-server-imgs/igw.png)
 
 🔹 Public Route Table → linked to public subnets  
-🔹 Private Route Table → linked to private subnet  
 
 Route tables are used to control how traffic flows within the VPC.
 
 The public route table includes a route to the Internet Gateway (0.0.0.0/0), allowing internet access for public resources.  
-The private route table restricts direct internet access, ensuring that sensitive resources like the database remain isolated.
+
 
 ✔ Controls traffic flow between subnets  
 ✔ Enables internet access only for public resources  
 ✔ Enhances security by isolating private components  
+
 ![Security Groups](./web-server-imgs/sg.png)
 
 🔹 Applied to: EC2 instances & Load Balancer  
@@ -281,7 +281,8 @@ It delivers alerts (e.g., via email) to keep administrators informed and enable 
 ✔ Integrated with CloudWatch alarms  
 ✔ Improves monitoring and incident response  
 
-<p style="font-size: 30px; font-weight: bold;">Categories</p>  
+Categories 
+
 🌐 Networking
 - VPC  
 - Subnets (Public & Private)  
